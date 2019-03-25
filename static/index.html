@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>nej todo</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <textarea id="txt-0"></textarea>
+    <input type="text" id="input-id-0" maxlength="100" />
+
+    <script src="http://nej.netease.com/nej2/src/define.js"></script>
+    <script>
+        // NEJ.define([
+        //     'util/counter/counter'
+        // ], function(_e) {
+        //     _e._$counter('txt-0');
+        //     _e._$counter('input-id-0');
+
+        //     // TODO
+        // });
+        NEJ.define([
+            'util/ajax/xdr'
+        ], function(_j) {
+            const _id = _j._$request('http://localhost:3000/places', {
+                sync: true,
+                type: 'json',
+                method: 'get',
+                timeout: 3000,
+                mode: 0,
+                onload(_data) {
+                    console.log('successfully get data', _data);
+                },
+                onerror(_error) {
+                    console.error(_error);
+                }
+            });
+        })
+    </script>
+    <!-- <script>
+        NEJ.define([
+            'util/chain/chainable',
+            'util/counter/counter'
+        ], function ($) {
+            $('#txt-0')._$counter();
+            $('#input-id-0')._$counter();
+
+            // TODO
+        });
+    </script> -->
+</body>
+
+</html>
