@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>nej todo</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div id="template-box" style="display:none;">
+        <textarea name="html" data-src="module/counter/index.html"></textarea>
+    </div>
+
+    <script src="../javascript/cache/item.data.js"></script>
+
+    <script src="http://nej.netease.com/nej2/src/define.js?pro=../javascript/"></script>
+    <script>
+        NEJ.define([
+            'util/dispatcher/dispatcher'
+        ], function (_e) {
+            _e._$startup({
+                // 规则配置
+                rules: {
+                    rewrite: {
+                        // 重写规则配置
+                        '404': '/m/counter'
+                    },
+                    title: {
+                        // 标题配置
+                        '/m/counter': '计数器'
+                    },
+                    alias: {
+                        // 别名配置
+                        // 建议模块实现文件中的注册采用这里配置的别名
+                        'counter': '/m/counter'
+                    }
+                },
+                // 模块配置
+                modules: {
+                    // 模块UMI对应实现文件的映射表
+                    // 同时完成模块的组合
+                    '/m/counter': 'module/counter/index.html'
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

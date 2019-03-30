@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const rootPath = path.join(__dirname, '..');
-const staticPath = path.join(rootPath, './static');
+const staticPath = path.join(rootPath, './webroot');
 
 app.use(express.static(staticPath));
 
@@ -21,6 +21,10 @@ mongoose.connect(dbUrl, (err) => {
     console.log('mongodb connected');
 });
 const Place = mongoose.model('Place', { name: String });
+
+// app.get('/', function(req, res) {
+//     res.sendFile(path.join(rootPath, './webroot/src/html/app.html'));
+// });
 
 // 定义路由
 app.get('/places', (req, res) => {
