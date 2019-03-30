@@ -7,6 +7,9 @@
 </head>
 
 <body>
+    <h2>nej-todo</h2>
+    <div class="g-bd" id="module-box"></div>
+
     <div id="template-box" style="display:none;">
         <textarea name="html" data-src="module/counter/index.html"></textarea>
     </div>
@@ -32,6 +35,7 @@
                     alias: {
                         // 别名配置
                         // 建议模块实现文件中的注册采用这里配置的别名
+                        'layout-system': '/m',
                         'counter': '/m/counter'
                     }
                 },
@@ -39,6 +43,7 @@
                 modules: {
                     // 模块UMI对应实现文件的映射表
                     // 同时完成模块的组合
+                    '/m': 'module/layout/system/index.html',
                     '/m/counter': 'module/counter/index.html'
                 }
             });

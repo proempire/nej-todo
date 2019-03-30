@@ -1,10 +1,3 @@
-/*
- * ------------------------------------------
- * 项目模块实现文件
- * @version  1.0
- * @author   genify(caijf@corp.netease.com)
- * ------------------------------------------
- */
 NEJ.define([
     'base/klass',
     'base/element',
