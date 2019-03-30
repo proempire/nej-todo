@@ -1,0 +1,21 @@
+<meta charset="utf-8" />
+<textarea name="jst" id="jst-counter">
+    <!-- <textarea id="txt-0"></textarea>
+    <input type="text" id="input-id-0" maxlength="100" /> -->
+    <h3>Counter</h3>
+    <p>Click the right button to add</p>
+    <div class="jst-counter-list"></div>
+</textarea>
+<textarea name="jst" id="jst-counter-list-item">
+    {list beg..end as y}
+        {var x=xlist[y]}
+        <div class="item">
+            <span>${x.name}</span>
+        </div>
+        <button>Add</button>
+    {/list}
+  </textarea>
+<!-- @TEMPLATE -->
+<textarea name="css" data-src="./index.css"></textarea>
+<textarea name="js" data-src="./index.js"></textarea>
+<!-- /@TEMPLATE -->
