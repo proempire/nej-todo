@@ -9,10 +9,12 @@
 <textarea name="jst" id="jst-counter-list-item">
     {list beg..end as y}
         {var x=xlist[y]}
-        <div class="item">
-            <span>${x.name}</span>
+        <div class="item-container">
+            <div class="item">
+                <span class="item-name">${x.name}</span>
+            </div>
+            <button class="item-add">Add</button>
         </div>
-        <button>Add</button>
     {/list}
   </textarea>
 <!-- @TEMPLATE -->

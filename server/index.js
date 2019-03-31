@@ -27,12 +27,12 @@ const Place = mongoose.model('Place', { name: String });
 // });
 
 // 定义路由
-app.get('/places', (req, res) => {
+app.get('/items', (req, res) => {
     Place.find({}, (err, places) => {
         res.send(places);
     })
 });
-app.post('/places', (req, res) => {
+app.post('/items/add', (req, res) => {
     const place = new Place(req.body);
     place.save((err) => {
         if (err) {

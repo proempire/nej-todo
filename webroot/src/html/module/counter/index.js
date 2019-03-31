@@ -1,12 +1,14 @@
 NEJ.define([
     'base/klass',
     'base/element',
+    'base/event',
     'util/dispatcher/module',
     'util/list/page',
     'util/template/tpl',
+    'util/ajax/xdr',
     'pro/module/module',
     'pro/cache/item'
-], function (_k, _el, _e, _t0, _t1, _t, _d, _p) {
+], function (_k, _el, _v, _e, _t0, _t1, _j, _t, _d, _p) {
     // variable declaration
     var _pro;
     /**
@@ -49,7 +51,18 @@ NEJ.define([
      */
     _pro.__onShow = function (_options) {
         this.__super(_options);
-        // TODO
+        // 添加系统预定义事件
+        _v._$addEvent(
+            'item-todo', 'click', function (_event) {
+                _j._$request('/items/add', {
+                    method: 'POST',
+                    type: 'json',
+                    data: { name: _v.getElement(_event, 'item-name').innerHTML },
+                    onload: this.__cbListLoad._$bind(this, _key, _callback),
+                    onerror: this.__cbListLoad._$bind(this, _key, _callback, _o)
+                });
+            }, false
+        );
     };
     /**
      * 刷新模块，主要处理以下业务逻辑
