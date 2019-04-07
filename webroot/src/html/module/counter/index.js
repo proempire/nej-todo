@@ -53,11 +53,22 @@ NEJ.define([
         this.__super(_options);
         // 添加系统预定义事件
         _v._$addEvent(
-            'item-todo', 'click', function (_event) {
+            'item-add', 'click', function (_event) {
                 _j._$request('/items/add', {
                     method: 'POST',
                     type: 'json',
-                    data: { name: _v.getElement(_event, 'item-name').innerHTML },
+                    data: { name: _el._$get('span-id-item-name').innerHTML },
+                    onload: this.__cbListLoad._$bind(this, _key, _callback),
+                    onerror: this.__cbListLoad._$bind(this, _key, _callback, _o)
+                });
+            }, false
+        );
+        _v._$addEvent(
+            'jst-counter-new', 'click', function (_event) {
+                _j._$request('/items/new', {
+                    method: 'POST',
+                    type: 'json',
+                    data: { name: _el._$get('input-id-counter-new').value },
                     onload: this.__cbListLoad._$bind(this, _key, _callback),
                     onerror: this.__cbListLoad._$bind(this, _key, _callback, _o)
                 });

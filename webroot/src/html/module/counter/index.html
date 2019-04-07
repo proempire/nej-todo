@@ -5,13 +5,17 @@
     <h3>Counter</h3>
     <p>Click the right button to add</p>
     <div class="jst-counter-list"></div>
+    <div class="jst-counter-new-container">
+        <input type="text" id="input-id-counter-new" maxlength="100"/>
+        <button class="jst-counter-new"></button>
+    </div>
 </textarea>
 <textarea name="jst" id="jst-counter-list-item">
     {list beg..end as y}
         {var x=xlist[y]}
         <div class="item-container">
             <div class="item">
-                <span class="item-name">${x.name}</span>
+                <span class="span-id-item-name">${x.name}</span>
             </div>
             <button class="item-add">Add</button>
         </div>
