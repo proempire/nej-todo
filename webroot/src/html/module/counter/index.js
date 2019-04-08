@@ -64,6 +64,17 @@ NEJ.define([
             }, false
         );
         _v._$addEvent(
+            'item-delete', 'click', function (_event) {
+                _j._$request('/items/delete', {
+                    method: 'POST',
+                    type: 'json',
+                    data: { name: _el._$get('span-id-item-name').innerHTML },
+                    onload: this.__cbListLoad._$bind(this, _key, _callback),
+                    onerror: this.__cbListLoad._$bind(this, _key, _callback, _o)
+                });
+            }, false
+        );
+        _v._$addEvent(
             'jst-counter-new', 'click', function (_event) {
                 _j._$request('/items/new', {
                     method: 'POST',
